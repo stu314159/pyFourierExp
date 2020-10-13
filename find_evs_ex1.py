@@ -14,8 +14,8 @@ import scipy.integrate as integrate
 def ef(alpha_n,x):
     return np.sin(alpha_n*x);
 
-def FF_exp(x,a_n,ev_n,N):
-    
+# construct Fourier expansion (this is crap)
+def FF_exp(x,a_n,ev_n,N):    
     ret_val = 0.
     for i in range(N):
         ret_val += a_n[i]*ef(ev_n[i],x); # this really sucks
