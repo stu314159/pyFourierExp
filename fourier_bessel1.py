@@ -29,7 +29,7 @@ X = np.linspace(a,b,Nx);
 
 
 # get eigenvalues
-N = 35; # number of ev's.
+N = 50; # number of ev's.
 
 # get N roots of J_1
 k = jn_zeros(1,N);
