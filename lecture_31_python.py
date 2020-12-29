@@ -18,8 +18,6 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
 import scipy.integrate as integrate
 
-from matplotlib import animation
-
 from scipy.special import jn_zeros 
 from scipy.special import j0 
 
