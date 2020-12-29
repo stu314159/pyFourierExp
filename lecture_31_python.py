@@ -152,6 +152,8 @@ NTIME = 50
 #T_time = np.linspace(0,Tmax,NTIME);
 
 # below code based on example at: https://matplotlib.org/2.0.0/examples/mplot3d/wire3d_animation_demo.html
+
+# function to generate "Z" values for the wireframe plot
 def generate(RR,t,U):
     rows = RR.shape[0];
     cols = RR.shape[1];
@@ -162,6 +164,7 @@ def generate(RR,t,U):
             UU[i,j] = U(RR[i,j],t);
     return UU
 
+# set-up the basic figure
 fig = plt.figure();
 ax = fig.add_subplot(111,projection='3d');
 # use XX and YY from static plot
@@ -172,9 +175,9 @@ ax.set_xlabel('X',fontsize=12,fontweight='bold');
 ax.set_ylabel('Y',fontsize=12,fontweight='bold');
 ax.set_zlabel('U',fontsize=12,fontweight='bold');
 ax.view_init(20,235);
-plt.title('Lecture 31 Example', fontsize=14, fontweight='bold')
+#plt.title('Lecture 31 Example', fontsize=14, fontweight='bold')
 
-# begin plotting
+# begin plotting annimation
 wframe = None
 
 for t in np.linspace(0,Tmax,NTIME):
@@ -182,5 +185,7 @@ for t in np.linspace(0,Tmax,NTIME):
         ax.collections.remove(wframe)
     UU = generate(RR,t,U);
     wframe = ax.plot_wireframe(XX,YY,UU)
+    title_str = f"Lecture 31 example, t = {t:.2f}"
+    plt.title(title_str,fontsize=14,fontweight='bold');
     plt.pause(0.01)
     
